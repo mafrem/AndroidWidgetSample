@@ -21,9 +21,8 @@ public class CardActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cards);
+        setContentView(R.layout.card_activity_cards);
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
 //        setSupportActionBar(myToolbar);
 
         final FloatingActionButton button = (FloatingActionButton) findViewById(R.id. buttonPlusCard);

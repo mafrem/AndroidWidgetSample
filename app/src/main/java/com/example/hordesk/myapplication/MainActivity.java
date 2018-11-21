@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.hordesk.myapplication.Cards.CardActivity;
+import com.example.hordesk.myapplication.Drawer.DrawerActivity;
 
 import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
@@ -20,19 +21,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu);
 
-        final Button button = (Button) findViewById(R.id.button_card_list);
-
-        button.setOnClickListener(new View.OnClickListener() {
+        final Button buttonCardList = (Button) findViewById(R.id.button_card_list);
+        buttonCardList.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                sendMessage(v);
+                sendMessage(v, CardActivity.class);
+            }
+        });
+
+
+        final Button buttonDrawer = (Button) findViewById(R.id.button_drawer);
+        buttonDrawer.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                sendMessage(v, DrawerActivity.class);
             }
         });
 
     }
 
 
-    public void sendMessage(View view) {
-        Intent intent = new Intent(this, CardActivity.class);
+    public void sendMessage(View view, Class classe) {
+        Intent intent = new Intent(this, classe);
         intent.putExtra(EXTRA_MESSAGE, "Valeur recuperable de l'autre cote");
         startActivity(intent);
         //this.finish();

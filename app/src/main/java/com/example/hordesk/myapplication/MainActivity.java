@@ -32,8 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendMessage(View view) {
         Intent intent = new Intent(this, CardActivity.class);
-        intent.putExtra(EXTRA_MESSAGE, "lauch card");
+        intent.putExtra(EXTRA_MESSAGE, "Valeur recuperable de l'autre cote");
         startActivity(intent);
+        //this.finish();
 
     }
 

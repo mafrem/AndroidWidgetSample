@@ -10,33 +10,51 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 
-    private String[] titles = {"Chapter One",
+    public ArrayList titles = new ArrayList<String>(Arrays.asList(
+            "Chapter One",
             "Chapter Two",
             "Chapter Three",
             "Chapter Four",
             "Chapter Five",
             "Chapter Six",
             "Chapter Seven",
-            "Chapter Eight"};
+            "Chapter Eight"
+    ));
 
-    private String[] details = {"Item one details",
+    public List<String> details = new ArrayList<>(Arrays.asList(
+            "Item one details",
             "Item two details", "Item three details",
             "Item four details", "Item file details",
             "Item six details", "Item seven details",
-            "Item eight details"};
+            "Item eight details"
 
-    private int[] images = { R.drawable.android_image_1,
+    ));
+
+    public ArrayList images = new ArrayList<Integer>(Arrays.asList(
+            R.drawable.android_image_1,
             R.drawable.ic_launcher_background,
             R.drawable.ic_launcher_background,
             R.drawable.ic_launcher_background,
             R.drawable.ic_launcher_background,
             R.drawable.ic_launcher_background,
             R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background };
+            R.drawable.ic_launcher_background
+    ));
+
+
+    public void addElement (){
+        titles.add("Nouvel element");
+        details.add("Details");
+        images.add(R.drawable.ic_launcher_background);
+        this.notifyItemInserted(getItemCount() - 1);
+        }
 
     class ViewHolder extends RecyclerView.ViewHolder{
 
@@ -77,13 +95,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        viewHolder.itemTitle.setText(titles[i]);
-        viewHolder.itemDetail.setText(details[i]);
-        viewHolder.itemImage.setImageResource(images[i]);
+        viewHolder.itemTitle.setText((String)titles.get(i));
+        viewHolder.itemDetail.setText((String)details.get(i));
+        viewHolder.itemImage.setImageResource((Integer)images.get(i));
     }
 
     @Override
     public int getItemCount() {
-        return titles.length;
+        return titles.size();
     }
 }

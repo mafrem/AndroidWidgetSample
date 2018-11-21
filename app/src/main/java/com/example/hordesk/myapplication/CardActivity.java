@@ -1,18 +1,21 @@
 package com.example.hordesk.myapplication;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class CardActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
-    RecyclerView.Adapter adapter;
+    RecyclerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +24,9 @@ public class CardActivity extends AppCompatActivity {
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
 //        setSupportActionBar(myToolbar);
+
+        final FloatingActionButton button = (FloatingActionButton) findViewById(R.id. buttonPlusCard);
+
 
 
 
@@ -31,7 +37,15 @@ public class CardActivity extends AppCompatActivity {
 
         adapter = new RecyclerAdapter();
         recyclerView.setAdapter(adapter);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                adapter.addElement();
+                recyclerView.scrollToPosition(adapter.titles.size()-1);
+            }
+        });
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

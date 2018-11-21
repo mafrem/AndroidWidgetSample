@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.hordesk.myapplication.Cards.CardActivity;
 import com.example.hordesk.myapplication.Drawer.DrawerActivity;
+import com.example.hordesk.myapplication.SwipeActionBar.SwipeActionBarActivity;
 
 import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
@@ -33,6 +34,13 @@ public class MainActivity extends AppCompatActivity {
         buttonDrawer.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 sendMessage(v, DrawerActivity.class);
+            }
+        });
+
+        final Button buttonSwipe = (Button) findViewById(R.id.button_swipe);
+        buttonSwipe.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                sendMessage(v, SwipeActionBarActivity.class);
             }
         });
 

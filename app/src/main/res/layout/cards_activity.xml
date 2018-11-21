@@ -35,5 +35,5 @@
         android:layout_alignParentBottom="true"
         android:layout_gravity="end|bottom"
         android:clickable="true"
-        android:src="@drawable/plus"/>
+        android:src="@android:drawable/ic_menu_add"/>
 </RelativeLayout>

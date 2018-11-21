@@ -38,21 +38,21 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     ));
 
     public ArrayList images = new ArrayList<Integer>(Arrays.asList(
-            R.drawable.android_image_1,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background
+            R.drawable.card_image,
+            R.drawable.card_image,
+            R.drawable.card_image,
+            R.drawable.card_image,
+            R.drawable.card_image,
+            R.drawable.card_image,
+            R.drawable.card_image,
+            R.drawable.card_image
     ));
 
 
     public void addElement (){
         titles.add("Nouvel element");
         details.add("Details");
-        images.add(R.drawable.ic_launcher_background);
+        images.add(R.drawable.card_image);
         this.notifyItemInserted(getItemCount() - 1);
         }
 
@@ -88,7 +88,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.card_layout, viewGroup, false);
+                .inflate(R.layout.cards_card, viewGroup, false);
         ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
     }
